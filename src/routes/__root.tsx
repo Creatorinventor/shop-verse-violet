@@ -31,14 +31,18 @@ export const Route = createRootRoute({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
+      { title: "Shop Verse" },
+      { name: "description", content: "Violet Muse Emporium is an e-commerce website template for selling products online." },
       { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { property: "og:title", content: "Shop Verse" },
+      { property: "og:description", content: "Violet Muse Emporium is an e-commerce website template for selling products online." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "Shop Verse" },
+      { name: "twitter:description", content: "Violet Muse Emporium is an e-commerce website template for selling products online." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/554e2c4c-574e-4e6c-8c5f-b11ef5ee41b7/id-preview-cad13202--c2e35c9e-ecf7-4704-adae-643eeff77bc7.lovable.app-1778063786412.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/554e2c4c-574e-4e6c-8c5f-b11ef5ee41b7/id-preview-cad13202--c2e35c9e-ecf7-4704-adae-643eeff77bc7.lovable.app-1778063786412.png" },
     ],
     links: [
       {
