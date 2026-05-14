@@ -31,16 +31,17 @@ export const Route = createRootRoute({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Shop Verse" },
-      { name: "description", content: "Violet Muse Emporium is an e-commerce website template for selling products online." },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Shop Verse" },
-      { property: "og:description", content: "Violet Muse Emporium is an e-commerce website template for selling products online." },
+      { title: "ShopVerse — Online shopping for everything you love" },
+      { name: "description", content: "ShopVerse is an online shopping destination with great deals on electronics, fashion, home, beauty, books, toys, sports, and grocery." },
+      { name: "author", content: "ShopVerse" },
+      { property: "og:site_name", content: "ShopVerse" },
+      { property: "og:title", content: "ShopVerse — Online shopping for everything you love" },
+      { property: "og:description", content: "Shop millions of products at great prices on ShopVerse: electronics, fashion, home essentials, beauty, books and more with fast delivery." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
-      { name: "twitter:title", content: "Shop Verse" },
-      { name: "twitter:description", content: "Violet Muse Emporium is an e-commerce website template for selling products online." },
+      { name: "twitter:site", content: "@ShopVerse" },
+      { name: "twitter:title", content: "ShopVerse — Online shopping for everything you love" },
+      { name: "twitter:description", content: "Shop millions of products at great prices on ShopVerse: electronics, fashion, home essentials, beauty, books and more with fast delivery." },
       { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/554e2c4c-574e-4e6c-8c5f-b11ef5ee41b7/id-preview-cad13202--c2e35c9e-ecf7-4704-adae-643eeff77bc7.lovable.app-1778063786412.png" },
       { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/554e2c4c-574e-4e6c-8c5f-b11ef5ee41b7/id-preview-cad13202--c2e35c9e-ecf7-4704-adae-643eeff77bc7.lovable.app-1778063786412.png" },
     ],
@@ -48,6 +49,32 @@ export const Route = createRootRoute({
       {
         rel: "stylesheet",
         href: appCss,
+      },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "Organization",
+              name: "ShopVerse",
+              url: "https://shop-verse-violet.lovable.app",
+              logo: "https://shop-verse-violet.lovable.app/favicon.ico",
+            },
+            {
+              "@type": "WebSite",
+              name: "ShopVerse",
+              url: "https://shop-verse-violet.lovable.app",
+              potentialAction: {
+                "@type": "SearchAction",
+                target: "https://shop-verse-violet.lovable.app/?q={search_term_string}",
+                "query-input": "required name=search_term_string",
+              },
+            },
+          ],
+        }),
       },
     ],
   }),

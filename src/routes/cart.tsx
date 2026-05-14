@@ -3,7 +3,17 @@ import { ShoppingCart } from "lucide-react";
 
 export const Route = createFileRoute("/cart")({
   component: CartPage,
-  head: () => ({ meta: [{ title: "Your Cart — ShopVerse" }] }),
+  head: () => ({
+    meta: [
+      { title: "Your Cart — ShopVerse" },
+      { name: "description", content: "Review the items in your ShopVerse cart, update quantities, apply offers, and proceed to a fast and secure checkout." },
+      { property: "og:title", content: "Your Cart — ShopVerse" },
+      { property: "og:description", content: "Review the items in your ShopVerse cart, update quantities, apply offers, and proceed to a fast and secure checkout." },
+      { property: "og:url", content: "https://shop-verse-violet.lovable.app/cart" },
+      { name: "robots", content: "noindex" },
+    ],
+    links: [{ rel: "canonical", href: "https://shop-verse-violet.lovable.app/cart" }],
+  }),
 });
 
 function CartPage() {

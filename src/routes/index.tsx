@@ -9,6 +9,12 @@ export const Route = createFileRoute("/")({
     meta: [
       { title: "ShopVerse — Online shopping for everything you love" },
       { name: "description", content: "Discover deals on electronics, fashion, home & more at ShopVerse." },
+      { property: "og:title", content: "ShopVerse — Online shopping for everything you love" },
+      { property: "og:description", content: "Discover daily deals across electronics, fashion, home, beauty, books, toys, sports, and grocery — with fast delivery from ShopVerse." },
+      { property: "og:url", content: "https://shop-verse-violet.lovable.app/" },
+    ],
+    links: [
+      { rel: "canonical", href: "https://shop-verse-violet.lovable.app/" },
     ],
   }),
 });

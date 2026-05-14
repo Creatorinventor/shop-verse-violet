@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /account
+Disallow: /cart
+Disallow: /orders
+
+Sitemap: https://shop-verse-violet.lovable.app/sitemap.xml

@@ -2,7 +2,17 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/account")({
   component: AccountPage,
-  head: () => ({ meta: [{ title: "Sign in — ShopVerse" }] }),
+  head: () => ({
+    meta: [
+      { title: "Sign in — ShopVerse" },
+      { name: "description", content: "Sign in to your ShopVerse account to track orders, manage your wishlist, save addresses, and check out faster." },
+      { property: "og:title", content: "Sign in — ShopVerse" },
+      { property: "og:description", content: "Sign in to your ShopVerse account to track orders, manage your wishlist, save addresses, and check out faster." },
+      { property: "og:url", content: "https://shop-verse-violet.lovable.app/account" },
+      { name: "robots", content: "noindex" },
+    ],
+    links: [{ rel: "canonical", href: "https://shop-verse-violet.lovable.app/account" }],
+  }),
 });
 
 function AccountPage() {
