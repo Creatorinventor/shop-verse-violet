@@ -9,12 +9,39 @@ export const Route = createFileRoute("/category/$slug")({
     if (!cat) throw notFound();
     return { category: cat };
   },
-  head: ({ loaderData }) => ({
-    meta: [
-      { title: loaderData ? `${loaderData.category.name} — ShopVerse` : "Category — ShopVerse" },
-      { name: "description", content: loaderData ? `Shop ${loaderData.category.name} on ShopVerse.` : "Browse categories on ShopVerse." },
-    ],
-  }),
+  head: ({ loaderData, params }) => {
+    const name = loaderData?.category.name ?? "Category";
+    const slug = params.slug;
+    const title = `${name} — Shop ${name} online at ShopVerse`;
+    const description = `Browse the ${name} collection on ShopVerse. Compare top-rated ${name.toLowerCase()} products at great prices with fast, reliable delivery.`;
+    return {
+      meta: [
+        { title },
+        { name: "description", content: description },
+        { property: "og:title", content: title },
+        { property: "og:description", content: description },
+        { property: "og:url", content: `https://shop-verse-violet.lovable.app/category/${slug}` },
+        ...(loaderData?.category.image ? [{ property: "og:image" as const, content: loaderData.category.image }] : []),
+      ],
+      links: [
+        { rel: "canonical", href: `https://shop-verse-violet.lovable.app/category/${slug}` },
+      ],
+      scripts: loaderData
+        ? [
+            {
+              type: "application/ld+json",
+              children: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "CollectionPage",
+                name: loaderData.category.name,
+                description,
+                url: `https://shop-verse-violet.lovable.app/category/${slug}`,
+              }),
+            },
+          ]
+        : undefined,
+    };
+  },
   errorComponent: ({ error, reset }) => {
     const router = useRouter();
     return (

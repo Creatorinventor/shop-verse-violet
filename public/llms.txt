@@ -1,0 +1,24 @@
+# ShopVerse
+
+> ShopVerse is an online shopping destination with great deals on electronics, fashion, home essentials, beauty, books, toys, sports, and grocery.
+
+## Pages
+
+- [Home](/): Featured deals, top categories, and today's top picks.
+
+## Categories
+
+- [Electronics](/category/electronics): Headphones, smart watches, TVs, cameras and more.
+- [Fashion](/category/fashion): Apparel, bags and accessories.
+- [Home & Kitchen](/category/home): Furniture, cookware, and home essentials.
+- [Beauty](/category/beauty): Skincare and personal care.
+- [Books](/category/books): Bestselling novels and non-fiction.
+- [Toys](/category/toys): Toys and games for all ages.
+- [Sports](/category/sports): Footwear, fitness gear and outdoor equipment.
+- [Grocery](/category/grocery): Pantry staples and gourmet picks.
+
+## Optional
+
+- [Sign in](/account): Account access (not indexed).
+- [Cart](/cart): Shopping cart (not indexed).
+- [Orders](/orders): Order history (not indexed).

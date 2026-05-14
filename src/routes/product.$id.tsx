@@ -10,13 +10,50 @@ export const Route = createFileRoute("/product/$id")({
     if (!product) throw notFound();
     return { product };
   },
-  head: ({ loaderData }) => ({
-    meta: [
-      { title: loaderData ? `${loaderData.product.name} — ShopVerse` : "Product — ShopVerse" },
-      { name: "description", content: loaderData?.product.description ?? "Shop on ShopVerse." },
-      { property: "og:image", content: loaderData?.product.image ?? "" },
-    ],
-  }),
+  head: ({ loaderData, params }) => {
+    const product = loaderData?.product;
+    const title = product ? `${product.name} — Buy online at ShopVerse` : "Product — ShopVerse";
+    const description = product?.description ?? "Shop quality products at great prices on ShopVerse with fast delivery and easy returns.";
+    const url = `https://shop-verse-violet.lovable.app/product/${params.id}`;
+    return {
+      meta: [
+        { title },
+        { name: "description", content: description },
+        { property: "og:title", content: title },
+        { property: "og:description", content: description },
+        { property: "og:type", content: "product" },
+        { property: "og:url", content: url },
+        ...(product?.image ? [{ property: "og:image" as const, content: product.image }] : []),
+      ],
+      links: [{ rel: "canonical", href: url }],
+      scripts: product
+        ? [
+            {
+              type: "application/ld+json",
+              children: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "Product",
+                name: product.name,
+                image: product.image,
+                description,
+                aggregateRating: {
+                  "@type": "AggregateRating",
+                  ratingValue: product.rating,
+                  reviewCount: product.reviews,
+                },
+                offers: {
+                  "@type": "Offer",
+                  price: product.price,
+                  priceCurrency: "INR",
+                  availability: "https://schema.org/InStock",
+                  url,
+                },
+              }),
+            },
+          ]
+        : undefined,
+    };
+  },
   errorComponent: ({ error, reset }) => {
     const router = useRouter();
     return (
